@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://example.org/fhir/StructureDefinition/CareRecordSummaryPatient" />
+  <name value="CareRecordSummaryPatient" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="loinc" />
+    <uri value="http://loinc.org" />
+    <name value="LOINC code for the element" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient.identifier">
+      <path value="Patient.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Patient.identifier.value">
+      <path value="Patient.identifier.value" />
+      <max value="0" />
+    </element>
+    <element id="Patient.identifier:Id">
+      <path value="Patient.identifier" />
+      <sliceName value="Id" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.identifier:Id.system">
+      <path value="Patient.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Patient.identifier:MPI">
+      <path value="Patient.identifier" />
+      <sliceName value="MPI" />
+      <max value="1" />
+    </element>
+    <element id="Patient.name">
+      <path value="Patient.name" />
+      <min value="1" />
+    </element>
+    <element id="Patient.name.family">
+      <path value="Patient.name.family" />
+      <min value="1" />
+    </element>
+    <element id="Patient.name.given">
+      <path value="Patient.name.given" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <min value="1" />
+    </element>
+    <element id="Patient.address">
+      <path value="Patient.address" />
+      <min value="1" />
+    </element>
+    <element id="Patient.address.line">
+      <path value="Patient.address.line" />
+      <short value="도로명 주소" />
+      <definition value="시군구 이하 도로명 주소" />
+    </element>
+    <element id="Patient.address.city">
+      <path value="Patient.address.city" />
+      <short value="시군구 정보" />
+      <definition value="한국의 시군구 주소 정보" />
+    </element>
+    <element id="Patient.address.state">
+      <path value="Patient.address.state" />
+      <short value="광역 주소" />
+      <definition value="한국의 광역주소 정보 (서울특별시, 경기도)" />
+    </element>
+  </differential>
+</StructureDefinition>
