@@ -1,4 +1,7 @@
 # CRS-FHIR-Document
 Care Record Summary FHIR Document Profiling
 
-## Second Commit
+## Resource Profiling
+CRS-Patient
+CRS-Practitioner
+CRS-PractitionerRole
