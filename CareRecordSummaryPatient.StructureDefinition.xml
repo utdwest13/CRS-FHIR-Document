@@ -46,24 +46,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Patient.identifier.value">
-      <path value="Patient.identifier.value" />
-      <max value="0" />
-    </element>
-    <element id="Patient.identifier:Id">
-      <path value="Patient.identifier" />
-      <sliceName value="Id" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Patient.identifier:Id.system">
-      <path value="Patient.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
     <element id="Patient.identifier:MPI">
       <path value="Patient.identifier" />
       <sliceName value="MPI" />
+      <short value="MPI" />
+      <fixedIdentifier>
+        <system value="fadsf" />
+      </fixedIdentifier>
+    </element>
+    <element id="Patient.identifier:MPI.type.coding">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="Patient.identifier.type.coding" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Patient.name">
