@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="http://example.org/fhir/StructureDefinition/CareRecordSummaryPatient" />
-  <name value="CareRecordSummaryPatient" />
+  <url value="http://example.org/fhir/StructureDefinition/crs-patient" />
+  <name value="CrsPatient" />
   <status value="draft" />
   <fhirVersion value="4.0.1" />
   <mapping>
@@ -46,24 +46,39 @@
       </slicing>
       <min value="1" />
     </element>
+    <element id="Patient.identifier.system">
+      <path value="Patient.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Patient.identifier.value">
+      <path value="Patient.identifier.value" />
+      <min value="1" />
+    </element>
     <element id="Patient.identifier:MPI">
       <path value="Patient.identifier" />
       <sliceName value="MPI" />
       <short value="MPI" />
+      <min value="1" />
+      <max value="1" />
       <fixedIdentifier>
         <system value="fadsf" />
       </fixedIdentifier>
     </element>
     <element id="Patient.identifier:MPI.type.coding">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
       <path value="Patient.identifier.type.coding" />
       <min value="1" />
       <max value="1" />
+    </element>
+    <element id="Patient.identifier:MPI.system">
+      <path value="Patient.identifier.system" />
+      <short value="MPI OID" />
+      <definition value="Establishes MPI OID" />
+      <min value="1" />
+      <fixedUri value="urn:oid:1.2.410.100110.20.10" />
+    </element>
+    <element id="Patient.identifier:MPI.value">
+      <path value="Patient.identifier.value" />
+      <min value="1" />
     </element>
     <element id="Patient.name">
       <path value="Patient.name" />
@@ -78,28 +93,43 @@
       <min value="1" />
       <max value="1" />
     </element>
+    <element id="Patient.name.prefix">
+      <path value="Patient.name.prefix" />
+      <max value="1" />
+    </element>
+    <element id="Patient.name.suffix">
+      <path value="Patient.name.suffix" />
+      <max value="1" />
+    </element>
+    <element id="Patient.telecom.value">
+      <path value="Patient.telecom.value" />
+      <min value="1" />
+    </element>
     <element id="Patient.birthDate">
       <path value="Patient.birthDate" />
       <min value="1" />
     </element>
-    <element id="Patient.address">
-      <path value="Patient.address" />
+    <element id="Patient.address.text">
+      <path value="Patient.address.text" />
       <min value="1" />
     </element>
-    <element id="Patient.address.line">
-      <path value="Patient.address.line" />
-      <short value="도로명 주소" />
-      <definition value="시군구 이하 도로명 주소" />
+    <element id="Patient.communication">
+      <path value="Patient.communication" />
+      <max value="1" />
     </element>
-    <element id="Patient.address.city">
-      <path value="Patient.address.city" />
-      <short value="시군구 정보" />
-      <definition value="한국의 시군구 주소 정보" />
+    <element id="Patient.communication.language.coding">
+      <path value="Patient.communication.language.coding" />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Patient.address.state">
-      <path value="Patient.address.state" />
-      <short value="광역 주소" />
-      <definition value="한국의 광역주소 정보 (서울특별시, 경기도)" />
+    <element id="Patient.communication.language.coding.system">
+      <path value="Patient.communication.language.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.1.11.11526" />
+    </element>
+    <element id="Patient.communication.language.coding.code">
+      <path value="Patient.communication.language.coding.code" />
+      <min value="1" />
     </element>
   </differential>
 </StructureDefinition>
