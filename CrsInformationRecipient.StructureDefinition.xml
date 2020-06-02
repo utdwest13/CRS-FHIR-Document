@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://example.org/fhir/StructureDefinition/crs-informationRecipient" />
+  <name value="CrsInformationRecipient" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Composition" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/crs-informationRecipient" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+      </type>
+      <fixedReference>
+        <type value="PractitionerRole" />
+      </fixedReference>
+    </element>
+    <element id="Extension.value[x].reference">
+      <path value="Extension.value[x].reference" />
+      <type>
+        <code value="string" />
+        <profile value="http://example.org/fhir/StructureDefinition/crs-practitionerRole" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

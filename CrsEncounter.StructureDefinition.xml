@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://example.org/fhir/StructureDefinition/crs-encounter" />
+  <name value="CrsEncounter" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="workflow" />
+    <uri value="http://hl7.org/fhir/workflow" />
+    <name value="Workflow Pattern" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Encounter" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Encounter.identifier">
+      <path value="Encounter.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Encounter.status">
+      <path value="Encounter.status" />
+      <fixedCode value="finished" />
+    </element>
+    <element id="Encounter.statusHistory">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="StatusHistory" />
+      </extension>
+      <path value="Encounter.statusHistory" />
+    </element>
+    <element id="Encounter.classHistory">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ClassHistory" />
+      </extension>
+      <path value="Encounter.classHistory" />
+    </element>
+    <element id="Encounter.diagnosis">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Diagnosis" />
+      </extension>
+      <path value="Encounter.diagnosis" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -39,6 +39,32 @@
       <path value="Composition.language" />
       <min value="1" />
     </element>
+    <element id="Composition.extension">
+      <path value="Composition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.extension:crs-information-recipient">
+      <path value="Composition.extension" />
+      <sliceName value="crs-information-recipient" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://example.org/fhir/StructureDefinition/crs-informationRecipient" />
+      </type>
+    </element>
+    <element id="Composition.extension:crs-information-recipient.value[x]">
+      <path value="Composition.extension.value[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-practitioner-role" />
+      </type>
+    </element>
     <element id="Composition.status">
       <path value="Composition.status" />
       <fixedCode value="final" />
@@ -65,8 +91,357 @@
         <targetProfile value="http://example.org/fhir/StructureDefinition/crs-patient" />
       </type>
     </element>
+    <element id="Composition.subject.reference">
+      <path value="Composition.subject.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-encounter" />
+      </type>
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-practitionerRole" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-device" />
+      </type>
+    </element>
     <element id="Composition.confidentiality">
       <path value="Composition.confidentiality" />
+      <min value="1" />
+    </element>
+    <element id="Composition.attester.mode">
+      <path value="Composition.attester.mode" />
+      <fixedCode value="personal" />
+    </element>
+    <element id="Composition.attester.time">
+      <path value="Composition.attester.time" />
+      <min value="1" />
+    </element>
+    <element id="Composition.attester.party">
+      <path value="Composition.attester.party" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-practitionerRole" />
+      </type>
+    </element>
+    <element id="Composition.section">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="ProblemSection" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:ProblemSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="11450-4" />
+    </element>
+    <element id="Composition.section:ProblemSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProblemSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="MedicationSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:MedicationSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="57833-6" />
+    </element>
+    <element id="Composition.section:MedicationSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:MedicationSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ResultSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="ResultSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ResultSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ResultSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ResultSection.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ResultSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:ResultSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="30954-2" />
+    </element>
+    <element id="Composition.section:ResultSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ResultSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProcedureSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="ProcedureSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ProcedureSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProcedureSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProcedureSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:ProcedureSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="47519-4" />
+    </element>
+    <element id="Composition.section:ProcedureSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ProcedureSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="AllergiesAndIntolerancesSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="48765-2" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:AllergiesAndIntolerancesSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ImmunizationSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="ImmunizationSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="11369-6" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:ImmunizationSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:VitalSignSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="VitalSignSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:VitalSignSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:VitalSignSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:VitalSignSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:VitalSignSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="8716-3" />
+    </element>
+    <element id="Composition.section:VitalSignSection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:VitalSignSection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:SocialHistorySection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="SocialHistorySection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="29762-2" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:SocialHistorySection.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="InfectiousDiseaseSection" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <fixedCode value="56838-6" />
+    </element>
+    <element id="Composition.section:InfectiousDiseaseSection.text">
+      <path value="Composition.section.text" />
       <min value="1" />
     </element>
   </differential>
