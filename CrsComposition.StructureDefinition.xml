@@ -62,7 +62,7 @@
       <path value="Composition.extension.value[x]" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-practitioner-role" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-practitionerRole" />
       </type>
     </element>
     <element id="Composition.status">
@@ -181,6 +181,10 @@
     <element id="Composition.section:ProblemSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-condition" />
+      </type>
     </element>
     <element id="Composition.section:MedicationSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -218,6 +222,10 @@
     <element id="Composition.section:MedicationSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-medicationRequest" />
+      </type>
     </element>
     <element id="Composition.section:ResultSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -255,6 +263,10 @@
     <element id="Composition.section:ResultSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-result-observation" />
+      </type>
     </element>
     <element id="Composition.section:ProcedureSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -287,6 +299,10 @@
     <element id="Composition.section:ProcedureSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-procedure" />
+      </type>
     </element>
     <element id="Composition.section:AllergiesAndIntolerancesSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -319,6 +335,10 @@
     <element id="Composition.section:AllergiesAndIntolerancesSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-allergyIntolerance" />
+      </type>
     </element>
     <element id="Composition.section:ImmunizationSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -351,6 +371,10 @@
     <element id="Composition.section:ImmunizationSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-immunization" />
+      </type>
     </element>
     <element id="Composition.section:VitalSignSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -383,6 +407,10 @@
     <element id="Composition.section:VitalSignSection.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-vitalSign-observation" />
+      </type>
     </element>
     <element id="Composition.section:SocialHistorySection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -414,7 +442,31 @@
     </element>
     <element id="Composition.section:SocialHistorySection.entry">
       <path value="Composition.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="reference" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:SocialHistorySection.entry:SocialHistoryEntry">
+      <path value="Composition.section.entry" />
+      <sliceName value="SocialHistoryEntry" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-socialHistory-observation" />
+      </type>
+    </element>
+    <element id="Composition.section:SocialHistorySection.entry:smokingStatusEntry">
+      <path value="Composition.section.entry" />
+      <sliceName value="smokingStatusEntry" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/crs-smokingStatus-observation" />
+      </type>
     </element>
     <element id="Composition.section:InfectiousDiseaseSection">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">

@@ -33,12 +33,5 @@
         <type value="PractitionerRole" />
       </fixedReference>
     </element>
-    <element id="Extension.value[x].reference">
-      <path value="Extension.value[x].reference" />
-      <type>
-        <code value="string" />
-        <profile value="http://example.org/fhir/StructureDefinition/crs-practitionerRole" />
-      </type>
-    </element>
   </differential>
 </StructureDefinition>

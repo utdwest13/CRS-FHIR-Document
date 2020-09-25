@@ -46,6 +46,9 @@
     <element id="MedicationRequest.medication[x]">
       <path value="MedicationRequest.medication[x]" />
       <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
         <code value="Reference" />
         <targetProfile value="http://example.org/fhir/StructureDefinition/crs-medication" />
       </type>

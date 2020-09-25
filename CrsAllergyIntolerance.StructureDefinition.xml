@@ -33,11 +33,25 @@
       <path value="AllergyIntolerance.clinicalStatus" />
       <min value="1" />
     </element>
+    <element id="AllergyIntolerance.clinicalStatus.coding.system">
+      <path value="AllergyIntolerance.clinicalStatus.coding.system" />
+      <fixedUri value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical" />
+    </element>
+    <element id="AllergyIntolerance.category">
+      <path value="AllergyIntolerance.category" />
+      <min value="1" />
+      <max value="1" />
+    </element>
     <element id="AllergyIntolerance.onset[x]">
       <path value="AllergyIntolerance.onset[x]" />
+      <min value="1" />
       <type>
         <code value="Period" />
       </type>
+    </element>
+    <element id="AllergyIntolerance.onset[x].start">
+      <path value="AllergyIntolerance.onset[x].start" />
+      <min value="1" />
     </element>
     <element id="AllergyIntolerance.reaction">
       <path value="AllergyIntolerance.reaction" />
@@ -45,9 +59,6 @@
       <max value="1" />
     </element>
     <element id="AllergyIntolerance.reaction.substance.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="AllergyIntolerance.reaction.substance.text" />
       <min value="1" />
     </element>
