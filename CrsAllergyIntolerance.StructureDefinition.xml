@@ -25,10 +25,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" />
   <derivation value="constraint" />
   <differential>
-    <element id="AllergyIntolerance.identifier">
-      <path value="AllergyIntolerance.identifier" />
-      <min value="1" />
-    </element>
     <element id="AllergyIntolerance.clinicalStatus">
       <path value="AllergyIntolerance.clinicalStatus" />
       <min value="1" />
@@ -42,9 +38,16 @@
       <min value="1" />
       <max value="1" />
     </element>
+    <element id="AllergyIntolerance.code">
+      <path value="AllergyIntolerance.code" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.code.text">
+      <path value="AllergyIntolerance.code.text" />
+      <min value="1" />
+    </element>
     <element id="AllergyIntolerance.onset[x]">
       <path value="AllergyIntolerance.onset[x]" />
-      <min value="1" />
       <type>
         <code value="Period" />
       </type>
@@ -52,11 +55,6 @@
     <element id="AllergyIntolerance.onset[x].start">
       <path value="AllergyIntolerance.onset[x].start" />
       <min value="1" />
-    </element>
-    <element id="AllergyIntolerance.reaction">
-      <path value="AllergyIntolerance.reaction" />
-      <min value="1" />
-      <max value="1" />
     </element>
     <element id="AllergyIntolerance.reaction.substance.text">
       <path value="AllergyIntolerance.reaction.substance.text" />
