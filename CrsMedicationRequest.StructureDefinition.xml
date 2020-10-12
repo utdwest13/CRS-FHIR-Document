@@ -35,10 +35,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
   <derivation value="constraint" />
   <differential>
-    <element id="MedicationRequest.identifier">
-      <path value="MedicationRequest.identifier" />
-      <min value="1" />
-    </element>
     <element id="MedicationRequest.intent">
       <path value="MedicationRequest.intent" />
       <fixedCode value="order" />
@@ -81,9 +77,19 @@
       <path value="MedicationRequest.dosageInstruction.timing.repeat.bounds[x].end" />
       <min value="1" />
     </element>
-    <element id="MedicationRequest.dosageInstruction.timing.repeat.count">
-      <path value="MedicationRequest.dosageInstruction.timing.repeat.count" />
+    <element id="MedicationRequest.dosageInstruction.timing.repeat.frequency">
+      <path value="MedicationRequest.dosageInstruction.timing.repeat.frequency" />
       <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.timing.repeat.period">
+      <path value="MedicationRequest.dosageInstruction.timing.repeat.period" />
+      <min value="1" />
+      <fixedDecimal value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.timing.repeat.periodUnit">
+      <path value="MedicationRequest.dosageInstruction.timing.repeat.periodUnit" />
+      <min value="1" />
+      <fixedCode value="d" />
     </element>
     <element id="MedicationRequest.dosageInstruction.doseAndRate">
       <path value="MedicationRequest.dosageInstruction.doseAndRate" />

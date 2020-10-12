@@ -56,6 +56,20 @@
       <path value="AllergyIntolerance.onset[x].start" />
       <min value="1" />
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding">
+      <path value="AllergyIntolerance.reaction.substance.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.reaction.substance.coding.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <fixedUri value="urn:oid:1.2.410.100110.400.1" />
+    </element>
     <element id="AllergyIntolerance.reaction.substance.text">
       <path value="AllergyIntolerance.reaction.substance.text" />
       <min value="1" />
