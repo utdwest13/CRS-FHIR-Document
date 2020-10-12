@@ -48,6 +48,7 @@
     </element>
     <element id="AllergyIntolerance.onset[x]">
       <path value="AllergyIntolerance.onset[x]" />
+      <min value="1" />
       <type>
         <code value="Period" />
       </type>
@@ -70,8 +71,8 @@
       <path value="AllergyIntolerance.reaction.substance.coding.system" />
       <fixedUri value="urn:oid:1.2.410.100110.400.1" />
     </element>
-    <element id="AllergyIntolerance.reaction.substance.text">
-      <path value="AllergyIntolerance.reaction.substance.text" />
+    <element id="AllergyIntolerance.reaction.onset">
+      <path value="AllergyIntolerance.reaction.onset" />
       <min value="1" />
     </element>
   </differential>
